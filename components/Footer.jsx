@@ -13,9 +13,9 @@ const Footer = () => {
                 </div>
                 <div className={styles.card}>
                     <h1 className={styles.title}>FIND OUR RESTAURANTS</h1>
-                    <p className={styles.text}>
+                    {/* <p className={styles.text}>
                         100/1 Rama IX Rd, <br/> Bangkok, 10310 <br/> +66 2 246 0535
-                    </p>
+                    </p> */}
                     <p className={styles.text}>
                         2505/6 Rama IV Rd, <br/> Bangkok, 10110 <br/> +66 2 115 2118
                     </p>
