@@ -6,8 +6,7 @@ import AddButton from '../components/AddButton';
 import { Featured } from '../components/Featured';
 import PizzaList from '../components/PizzaList';
 import styles from '../styles/Home.module.css';
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+import { axiosRequest } from '../util/config';
 
 export default function Home({productList, admin}) {
     const [close, setClose] = useState(true);
@@ -35,7 +34,7 @@ export const getServerSideProps = async (ctx) => {
     if (myCookie.token === process.env.TOKEN) {
         admin = true;
     }
-    const res = await axios.get(BASE_URL + "/api/products/");
+    const res = await axiosRequest.get("/products/");
     return {
         props: {
             productList: res.data,

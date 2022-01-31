@@ -1,8 +1,7 @@
 import axios from "axios";
 import Image from "next/image";
 import styles from "../../styles/Order.module.css";
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+import { axiosRequest } from "../../util/config";
 
 const Order = ({order}) => {
     const status = order.status;
@@ -105,7 +104,7 @@ const Order = ({order}) => {
 export default Order;
 
 export const getServerSideProps = async ({params}) => {
-    const res = await axios.get(BASE_URL + "/api/orders/" + params.id);
+    const res = await axiosRequest.get("/orders/" + params.id);
     return {
         props: {
             order: res.data,

@@ -1,8 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import styles from "../styles/Add.module.css";
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+import { axiosRequest } from "../util/config";
 
 const Add = ({setClose}) => {
     const [file, setFile] = useState(null);
@@ -42,7 +41,7 @@ const Add = ({setClose}) => {
                 extraOptions, 
             };
 
-            await axios.post(BASE_URL + "/api/products", newProduct);
+            await axiosRequest.post("/products", newProduct);
             setClose(true);
         } catch (err) {
             console.log(err);

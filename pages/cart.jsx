@@ -7,13 +7,12 @@ import {
     PayPalButtons,
     usePayPalScriptReducer
 } from "@paypal/react-paypal-js";
-import axios from "axios";
 import { useRouter } from "next/router";
 import { reset } from "../redux/cartSlice";
 import OrderDetail from "../components/OrderDetail";
+import { axiosRequest } from "../util/config";
 
 const CLIENT_ID = process.env.NEXT_PUBLIC_PAYPAL;
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
 
 const Cart = () => {
     const dispatch = useDispatch();
@@ -29,7 +28,7 @@ const Cart = () => {
 
     const createOrder = async (data) => {
         try {
-            const res = await axios.post(BASE_URL + "/api/orders", data);
+            const res = await axiosRequest.post("/orders", data);
             if (res.status === 201) {
                 dispatch(reset());
                 router.push(`/orders/${res.data._id}`);

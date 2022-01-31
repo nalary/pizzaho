@@ -4,8 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../redux/cartSlice";
-
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL;
+import { axiosRequest } from "../../util/config";
 
 const Product = ({product}) => {
     const [size, setSize] = useState(0);
@@ -100,7 +99,7 @@ const Product = ({product}) => {
 export default Product;
 
 export const getServerSideProps = async ({params}) => {
-    const res = await axios.get(BASE_URL + "/api/products/" + params.id);
+    const res = await axiosRequest.get("/products/" + params.id);
     return {
         props: {
             product: res.data,
