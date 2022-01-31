@@ -1,0 +1,49 @@
+.container {
+    padding: 50px;
+    display: flex;
+}
+
+.item:first-child {
+    flex: 0.8;
+}
+
+.item:last-child {
+    flex: 1.2;
+}
+
+.table {
+    width: 100%;
+    border-spacing: 20px;
+    text-align: left;
+}
+
+.button {
+    border: none;
+    color: white;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.button:first-child {
+    background-color: teal;
+    margin-right: 10px;
+}
+
+.button:nth-child(2) {
+    background-color: crimson;
+    margin-right: 10px;
+}
+
+.doneButton {
+    border: none;
+    color: white;
+    background-color: gray;
+    padding: 5px;
+}
+
+.statusButton {
+    border: none;
+    color: white;
+    background-color: #2a7ade;
+    padding: 5px;
+}
